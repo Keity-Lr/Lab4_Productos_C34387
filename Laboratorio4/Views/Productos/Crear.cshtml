@@ -27,7 +27,16 @@
         <span asp-validation-for="Categoria" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Guardar</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    <div class="d-flex gap-2 mt-3">
+        <button type="submit" class="btn px-4 py-2"
+                style="background-color:#4a90e2; color:white; border-radius:6px;">
+            Guardar
+        </button>
+
+        <a asp-action="Index" class="btn px-4 py-2"
+               style="background-color:#6c757d; color:white; border-radius:6px;">
+            Cancelar
+        </a>
+    </div>
 
 </form>
