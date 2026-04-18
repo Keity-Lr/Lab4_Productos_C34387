@@ -1,0 +1,12 @@
+﻿@model Producto
+
+<h2 class="mb-4">Detalles del Producto</h2>
+
+<div class="card p-4 shadow-sm">
+    <h4>@Model.Nombre</h4>
+
+    <p><strong>Precio:</strong> @Model.Precio.ToString("C")</p>
+    <p><strong>Categoría:</strong> @Model.Categoria</p>
+
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>

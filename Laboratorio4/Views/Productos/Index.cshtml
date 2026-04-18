@@ -1,0 +1,51 @@
+﻿@model List<Producto>
+
+<h2>Productos</h2>
+
+<a asp-action="Crear" class="btn btn-primary mb-3">+ Nuevo Producto</a>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        No hay productos registrados.
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-hover shadow-sm">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Categoria</th>
+            <th>Acciones</th>
+        </tr>
+
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Nombre</td>
+                <td>@p.Precio.ToString("C")</td>
+                <td>@p.Categoria</td>
+                <td>
+                    <td>
+                        <a asp-action="Detalles" asp-route-id="@p.Id"
+                               class="btn btn-sm" style="background-color:#f0ad4e; color:black;">
+                            Detalles
+                        </a>
+
+                        <a asp-action="Editar" asp-route-id="@p.Id"
+                               class="btn btn-sm" style="background-color:#5cb85c; color:white;">
+                            Editar
+                        </a>
+
+                        <a asp-action="Eliminar" asp-route-id="@p.Id"
+                               class="btn btn-sm" style="background-color:#d9534f; color:white;">
+                            Eliminar
+                        </a>
+                    </td>
+            </tr>
+        }
+    </table>
+}
