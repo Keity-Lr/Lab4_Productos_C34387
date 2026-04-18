@@ -5,12 +5,14 @@ namespace Laboratorio4.Controllers
 {
     public class ProductosController : Controller
     {
+        // Muestra la lista de productos
         public IActionResult Index()
         {
             var lista = ProductoRepositorio.ObtenerTodos();
             return View(lista);
         }
 
+        // Muestra los detalles de un producto específico
         public IActionResult Detalles(int id)
         {
             var producto = ProductoRepositorio.ObtenerPorId(id);
@@ -23,11 +25,13 @@ namespace Laboratorio4.Controllers
             return View(producto);
         }
 
+        // Muestra el formulario para crear un producto
         public IActionResult Crear()
         {
             return View();
         }
 
+        // Procesa la creación de un nuevo producto
         [HttpPost]
         public IActionResult Crear(Producto p)
         {
@@ -38,6 +42,7 @@ namespace Laboratorio4.Controllers
             return RedirectToAction("Index");
         }
 
+        // Muestra el formulario para editar un producto existente
         public IActionResult Editar(int id)
         {
             var producto = ProductoRepositorio.ObtenerPorId(id);
@@ -50,6 +55,7 @@ namespace Laboratorio4.Controllers
             return View(producto);
         }
 
+        // Procesa la edición de un producto
         [HttpPost]
         public IActionResult Editar(Producto p)
         {
