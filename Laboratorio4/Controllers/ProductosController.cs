@@ -14,6 +14,12 @@ namespace Laboratorio4.Controllers
         public IActionResult Detalles(int id)
         {
             var producto = ProductoRepositorio.ObtenerPorId(id);
+
+            if (producto == null)
+            {
+                return NotFound();
+            }
+
             return View(producto);
         }
 
@@ -35,6 +41,12 @@ namespace Laboratorio4.Controllers
         public IActionResult Editar(int id)
         {
             var producto = ProductoRepositorio.ObtenerPorId(id);
+
+            if (producto == null)
+            {
+                return NotFound();
+            }
+
             return View(producto);
         }
 
@@ -51,6 +63,12 @@ namespace Laboratorio4.Controllers
         public IActionResult Eliminar(int id)
         {
             var producto = ProductoRepositorio.ObtenerPorId(id);
+
+            if (producto == null)
+            {
+                return NotFound();
+            }
+
             return View(producto);
         }
 
